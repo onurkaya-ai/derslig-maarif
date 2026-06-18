@@ -263,11 +263,11 @@
 
     return `
       <div class="product-card reveal ${delayClass}" data-card-id="${card.id}" data-product-id="${card.productId}">
-        <div class="card-img">
-          ${badgeHTML}
-          <img src="${product.tshirtGorsel || 'landing_assets/tshirt_erkek.png'}" alt="Tişört" class="tshirt-preview">
-          <img src="${product.tasarimGorsel}" alt="${product.urunAdi}" class="design-preview" style="width:${dw}%">
-          <img src="${product.tasarimGorsel}" alt="${product.urunAdi}" class="hover-img">
+        <div class="card-img" onmousemove="DersligEngine.handleZoom(event, this)" onmouseleave="DersligEngine.resetZoom(this)">
+          <div class="zoom-wrapper">
+            <img src="${product.tshirtGorsel || 'landing_assets/tshirt_erkek.png'}" alt="Tişört" class="tshirt-preview">
+            <img src="${product.tasarimGorsel}" alt="${product.urunAdi}" class="design-preview" style="width:${dw}%">
+          </div>
         </div>
         <div class="card-body">
           <div class="card-name">${product.urunAdi}</div>
@@ -356,6 +356,30 @@
     window._selPos = 'Ön Büyük';
     
     showCheckoutModal();
+  }
+
+  // ─── ZOOM EFEKT FONKSİYONLARI ───
+  function handleZoom(event, el) {
+    const rect = el.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    const wrapper = el.querySelector('.zoom-wrapper');
+    if(wrapper) {
+      wrapper.style.transformOrigin = `${x}% ${y}%`;
+      wrapper.style.transform = 'scale(1.8)';
+    }
+  }
+
+  function resetZoom(el) {
+    const wrapper = el.querySelector('.zoom-wrapper');
+    if(wrapper) {
+      wrapper.style.transform = 'scale(1)';
+      setTimeout(() => {
+        if(wrapper.style.transform === 'scale(1)') {
+            wrapper.style.transformOrigin = 'center center';
+        }
+      }, 150);
+    }
   }
 
   // ─── TASARIM SEÇİM MODAL ───
@@ -588,11 +612,11 @@
           <!-- Sipariş Özeti -->
           <div style="background:#f0fdfa; border:1px solid rgba(9,176,185,0.2); padding:16px 20px; border-radius:12px; margin-bottom:28px; display:flex; gap:16px; align-items:center;">
             <div style="width:60px; height:60px; background:#fff; border-radius:8px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.05); padding:8px;">
-               <img src="\${product.tasarimGorsel}" style="max-width:100%; max-height:100%; object-fit:contain;">
+               <img src="${product.tasarimGorsel}" style="max-width:100%; max-height:100%; object-fit:contain;">
             </div>
             <div>
-              <div style="font-size:15px; font-weight:800; color:#111827; margin-bottom:4px;">\${product.urunAdi}</div>
-              <div style="font-size:13px; font-weight:700; color:#09b0b9;">Beden: \${size} &nbsp;|&nbsp; Renk: \${cName}</div>
+              <div style="font-size:15px; font-weight:800; color:#111827; margin-bottom:4px;">${product.urunAdi}</div>
+              <div style="font-size:13px; font-weight:700; color:#09b0b9;">Beden: ${size} &nbsp;|&nbsp; Renk: ${cName}</div>
             </div>
           </div>
           
@@ -604,17 +628,17 @@
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
             <div>
               <label style="display:block; font-size:12px; font-weight:700; color:#6b7280; margin-bottom:6px;">Ad Soyad</label>
-              <input type="text" value="\${teacherData.name}" readonly style="width:100%; padding:12px 16px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; font-family:'Nunito',sans-serif; font-weight:600; color:#4b5563; outline:none;">
+              <input type="text" value="${teacherData.name}" readonly style="width:100%; padding:12px 16px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; font-family:'Nunito',sans-serif; font-weight:600; color:#4b5563; outline:none;">
             </div>
             <div>
               <label style="display:block; font-size:12px; font-weight:700; color:#6b7280; margin-bottom:6px;">Telefon</label>
-              <input type="text" value="\${teacherData.phone}" readonly style="width:100%; padding:12px 16px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; font-family:'Nunito',sans-serif; font-weight:600; color:#4b5563; outline:none;">
+              <input type="text" value="${teacherData.phone}" readonly style="width:100%; padding:12px 16px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; font-family:'Nunito',sans-serif; font-weight:600; color:#4b5563; outline:none;">
             </div>
           </div>
           
           <div style="margin-bottom:28px;">
             <label style="display:block; font-size:12px; font-weight:700; color:#6b7280; margin-bottom:6px;">Görev Yapılan Okul</label>
-            <input type="text" value="\${teacherData.school}" readonly style="width:100%; padding:12px 16px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; font-family:'Nunito',sans-serif; font-weight:600; color:#4b5563; outline:none;">
+            <input type="text" value="${teacherData.school}" readonly style="width:100%; padding:12px 16px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; font-family:'Nunito',sans-serif; font-weight:600; color:#4b5563; outline:none;">
           </div>
           
           <div style="font-size:14px; font-weight:800; color:#374151; margin-bottom:16px; display:flex; align-items:center; gap:8px;">
@@ -631,7 +655,7 @@
         <div style="padding:24px 32px; border-top:1px solid #e5e7eb; background:#f9fafb; border-radius:0 0 16px 16px; display:flex; justify-content:space-between; align-items:center;">
            <div>
              <div style="font-size:12px; color:#6b7280; font-weight:600;">Ödenecek Tutar</div>
-             <div style="font-size:24px; font-weight:900; color:#09b0b9;">\${formatPrice(product.urunUcreti) || 'Ücretsiz'}</div>
+             <div style="font-size:24px; font-weight:900; color:#09b0b9;">${formatPrice(product.urunUcreti) || 'Ücretsiz'}</div>
            </div>
            <button onclick="DersligEngine.submitOrder()" style="background:#E50069; color:#fff; border:none; padding:14px 32px; border-radius:8px; font-weight:800; font-size:15px; font-family:'Nunito',sans-serif; cursor:pointer; box-shadow:0 4px 12px rgba(229,0,105,0.25); transition:transform 0.2s;">Siparişi Onayla</button>
         </div>
@@ -830,6 +854,10 @@
       .card-detail-btn:hover {
         background: rgba(9,176,185,.06);
       }
+      
+      /* Zoom Efekti */
+      .card-img { overflow: hidden; position: relative; }
+      .zoom-wrapper { transition: transform 0.15s ease-out; transform-origin: center center; }
 
       .derslig-modal-overlay.active .derslig-modal { transform: scale(1); }
       .derslig-modal-header {
@@ -882,6 +910,8 @@
     getProducts: getProducts,
     getProductCards: getProductCards,
     filterCards: filterCards,
+    handleZoom: handleZoom,
+    resetZoom: resetZoom,
     resetData: function () {
       localStorage.setItem('derslig_products', JSON.stringify(DEFAULT_PRODUCTS));
       localStorage.setItem('derslig_product_cards', JSON.stringify(DEFAULT_CARDS));
