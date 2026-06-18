@@ -15,7 +15,7 @@
   // ─── VARSAYILAN ÜRÜNLER (6 tişört) ───
   const DEFAULT_PRODUCTS = [
     {
-      id: 1, tur: 'Tekil Ürün', kategori: 'Maarif Koleksiyonu',
+      id: 1, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
       urunAdi: 'Aydınlık Gelecek', aciklama: 'Öğretmen bir mum gibidir; kendi yanarken öğrencilerine ışık saçar.',
       urunUcreti: 0, ciziliUcret: 0,
       tasarimGorsel: 'landing_assets/landing_design_1.png',
@@ -28,7 +28,7 @@
       createdAt: '2026-01-01'
     },
     {
-      id: 2, tur: 'Tekil Ürün', kategori: 'Maarif Koleksiyonu',
+      id: 2, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
       urunAdi: 'Tatil Molası', aciklama: 'Ders aralarında sıcak bir kahve ve tatil hayalleri...',
       urunUcreti: 0, ciziliUcret: 0,
       tasarimGorsel: 'landing_assets/landing_design_2.png',
@@ -41,7 +41,7 @@
       createdAt: '2026-01-01'
     },
     {
-      id: 3, tur: 'Tekil Ürün', kategori: 'Maarif Koleksiyonu',
+      id: 3, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
       urunAdi: 'Kırmızı Kalemin Tatili', aciklama: 'Bütün yıl durmadan yazan o kırmızı kalem artık dinleniyor.',
       urunUcreti: 0, ciziliUcret: 0,
       tasarimGorsel: 'landing_assets/landing_design_3.png',
@@ -54,7 +54,7 @@
       createdAt: '2026-01-01'
     },
     {
-      id: 4, tur: 'Tekil Ürün', kategori: 'Maarif Koleksiyonu',
+      id: 4, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
       urunAdi: 'Tatil Hesabı', aciklama: '"Öğretmenler 3 ay tatil yapıyor" efsanesine son noktayı koyan ispat.',
       urunUcreti: 0, ciziliUcret: 0,
       tasarimGorsel: 'landing_assets/landing_design_4.png',
@@ -67,7 +67,7 @@
       createdAt: '2026-01-01'
     },
     {
-      id: 5, tur: 'Tekil Ürün', kategori: 'Maarif Koleksiyonu',
+      id: 5, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
       urunAdi: 'Teacher Mode OFF', aciklama: 'Okul zili çaldı, tatil başladı! Öğretmen Modu kapalı konumda.',
       urunUcreti: 0, ciziliUcret: 0,
       tasarimGorsel: 'landing_assets/landing_design_5.png',
@@ -80,7 +80,7 @@
       createdAt: '2026-01-01'
     },
     {
-      id: 6, tur: 'Tekil Ürün', kategori: 'Maarif Koleksiyonu',
+      id: 6, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
       urunAdi: 'Kalemden Kanatlara', aciklama: 'Öğretmenin kaleminden dökülen bilgi, gökyüzüne kanat çırpan kuşa dönüşür.',
       urunUcreti: 0, ciziliUcret: 0,
       tasarimGorsel: 'landing_assets/landing_design_6.png',
@@ -164,7 +164,7 @@
   ];
 
   // ─── VERİ KATMANI ───
-  const DB_VERSION = 3;
+  const DB_VERSION = 4;
   if (localStorage.getItem('derslig_db_ver') != DB_VERSION) {
     localStorage.removeItem('derslig_products');
     localStorage.removeItem('derslig_product_cards');
@@ -230,12 +230,8 @@
   function buildTshirtCardHTML(card, product, delayClass) {
     const hasDetail = card.paketDetayi && card.paketDetayi.trim().length > 0;
 
-    // Etiket (badge)
+    // Etiket (badge) kaldırıldı (kullanıcı talebi)
     let badgeHTML = '';
-    if (card.etiket) {
-      const cls = card.etiketStil === 'gold' ? 'card-badge gold' : 'card-badge';
-      badgeHTML = `<span class="${cls}">${card.etiket}</span>`;
-    }
 
     // Fiyat veya özel yazı
     let priceText = product.fiyatYazisi || '';
@@ -254,9 +250,7 @@
     if (card.ozellikler && card.ozellikler.length > 0) {
       featuresHTML = '<div class="card-features">';
       card.ozellikler.forEach(o => {
-        const icon = o.highlighted ? '★' : '✓';
-        const cls = o.highlighted ? ' class="highlighted"' : '';
-        featuresHTML += `<span${cls}>${icon} ${o.text}</span>`;
+        featuresHTML += `<span>✓ ${o.text}</span>`;
       });
       featuresHTML += '</div>';
     }

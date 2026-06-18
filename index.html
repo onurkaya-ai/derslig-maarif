@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maarif Koleksiyonu | Derslig</title>
+<title>Öğretmen Koleksiyonu | Derslig</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -109,8 +109,10 @@ img{max-width:100%;display:block}
 .product-card{background:#fff;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden;transition:all .3s ease}
 .product-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.06);border-color:#09b0b9}
 .card-img{position:relative;background:#f9fafb;display:flex;align-items:center;justify-content:center;padding:28px 20px;min-height:220px;overflow:hidden}
-.card-img .tshirt-preview{width:70%;height:auto;object-fit:contain;position:relative;z-index:2;filter:drop-shadow(0 8px 15px rgba(0,0,0,.06))}
-.card-img .design-preview{position:absolute;top:32%;left:50%;transform:translate(-50%,-50%);width:12%;z-index:3;pointer-events:none}
+.card-img .tshirt-preview{width:70%;height:auto;object-fit:contain;position:relative;z-index:2;filter:drop-shadow(0 8px 15px rgba(0,0,0,.06));transition:transform .4s ease}
+.card-img .design-preview{position:absolute;top:32%;left:50%;transform:translate(-50%,-50%);width:12%;z-index:3;pointer-events:none;transition:transform .4s ease}
+.product-card:hover .tshirt-preview{transform:scale(1.15)}
+.product-card:hover .design-preview{transform:translate(-50%,-50%) scale(1.15)}
 .card-img .hover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:16px;opacity:0;transition:opacity .4s;z-index:4;background:#f9fafb}
 .product-card:hover .hover-img{opacity:1}
 .card-badge{position:absolute;top:12px;left:12px;z-index:5;background:#09b0b9;color:#fff;font-size:10px;font-weight:800;padding:4px 10px;border-radius:6px;letter-spacing:.5px;text-transform:uppercase}
@@ -307,7 +309,7 @@ img{max-width:100%;display:block}
     
     <div style="position: relative; z-index: 2; display: flex; flex-direction: column; gap: 16px;">
       <div>
-        <span style="display: inline-block; background: #E50069; color: white; font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Maarif Koleksiyonu</span>
+        <span style="display: inline-block; background: #E50069; color: white; font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Öğretmen Koleksiyonu</span>
         <h1 style="font-size: 32px; font-weight: 900; line-height: 1.2; margin-bottom: 8px;">Öğretmenler için, <br/>öğretmenler tarafından tasarlandı.</h1>
         <p style="font-size: 15px; color: rgba(255,255,255,0.9); max-width: 650px; line-height: 1.6;">Merhaba Onur KAYA, mağazaya hoş geldiniz! Öğretmenliği görünür kılmak için tasarlanan bu koleksiyondan elde edilen gelirin bir kısmı, dezavantajlı öğrencilere eğitim desteği olarak aktarılmaktadır.</p>
       </div>
@@ -376,10 +378,7 @@ img{max-width:100%;display:block}
     </div>
   </div>
 
-  <div style="text-align:center;padding:20px 0 8px;font-size:11px;color:#9ca3af">© 2026 Derslig · Maarif Koleksiyonu · Öğretmenler için. Öğretmenler tarafından tasarlandı.</div>
-  <div style="text-align:center;padding:0 0 20px;font-size:11px">
-    <a href="magaza.html" style="color:#E50069;font-weight:700">Paketler & Fiyatlandırma</a>
-  </div>
+  <div style="text-align:center;padding:20px 0 8px;font-size:11px;color:#9ca3af">© 2026 Derslig · Öğretmen Koleksiyonu · Öğretmenler için. Öğretmenler tarafından tasarlandı.</div>
 </main>
 
 <script>
