@@ -243,7 +243,7 @@
     }
 
     // Tasarım genişliği küçültüldü (MVP tasarımsal görünüm)
-    const dw = (product.tasarimGenisligi || 14) * 0.65;
+    const dw = (product.tasarimGenisligi || 14) * 0.95;
 
     // Özellikler (varsa kartın altında göster)
     let featuresHTML = '';
