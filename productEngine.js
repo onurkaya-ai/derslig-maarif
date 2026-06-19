@@ -12,14 +12,15 @@
 (function () {
   'use strict';
 
-  // ─── VARSAYILAN ÜRÜNLER (4 tişört: 2 Tasarım x 2 Cinsiyet) ───
+  // ─── VARSAYILAN ÜRÜNLER (5 Tasarım x 2 Renk = 10 Tişört) ───
   const DEFAULT_PRODUCTS = [
     {
       id: 1, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Teacher Mode OFF (Erkek Kesim)', aciklama: 'Okul zili çaldı, tatil başladı! Öğretmen Modu kapalı konumda.',
+      urunAdi: 'Teacher Mode OFF (Beyaz Tişört)', aciklama: 'Okul zili çaldı, tatil başladı! Öğretmen Modu kapalı konumda.',
       urunUcreti: 0, ciziliUcret: 0,
       tasarimGorsel: 'landing_assets/design_teachermode_beyaz.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
+      renk: 'Beyaz',
       tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
@@ -29,10 +30,11 @@
     },
     {
       id: 2, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Teacher Mode OFF (Kadın Kesim)', aciklama: 'Okul zili çaldı, tatil başladı! Öğretmen Modu kapalı konumda.',
+      urunAdi: 'Teacher Mode OFF (Siyah Tişört)', aciklama: 'Okul zili çaldı, tatil başladı! Öğretmen Modu kapalı konumda.',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/design_teachermode_beyaz.png',
-      tshirtGorsel: 'landing_assets/tshirt_kadin.png',
+      tasarimGorsel: 'landing_assets/design_teachermode_siyah.png',
+      tshirtGorsel: 'landing_assets/tshirt_erkek.png',
+      renk: 'Siyah',
       tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
@@ -42,10 +44,11 @@
     },
     {
       id: 3, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Tatil Hesabı (Erkek Kesim)', aciklama: '"Öğretmenler 3 ay tatil yapıyor" efsanesine son noktayı koyan ispat.',
+      urunAdi: 'Tatil Hesabı (Beyaz Tişört)', aciklama: '"Öğretmenler 3 ay tatil yapıyor" efsanesine son noktayı koyan ispat.',
       urunUcreti: 0, ciziliUcret: 0,
       tasarimGorsel: 'landing_assets/design_2ay3ay_beyaz.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
+      renk: 'Beyaz',
       tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
@@ -55,10 +58,11 @@
     },
     {
       id: 4, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Tatil Hesabı (Kadın Kesim)', aciklama: '"Öğretmenler 3 ay tatil yapıyor" efsanesine son noktayı koyan ispat.',
+      urunAdi: 'Tatil Hesabı (Siyah Tişört)', aciklama: '"Öğretmenler 3 ay tatil yapıyor" efsanesine son noktayı koyan ispat.',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/design_2ay3ay_beyaz.png',
-      tshirtGorsel: 'landing_assets/tshirt_kadin.png',
+      tasarimGorsel: 'landing_assets/design_2ay3ay_siyah.png',
+      tshirtGorsel: 'landing_assets/tshirt_erkek.png',
+      renk: 'Siyah',
       tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
@@ -68,11 +72,12 @@
     },
     {
       id: 5, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Gergin Yay (Erkek Kesim)', aciklama: 'Eğitimdeki vizyonun ne kadar ileriye gidebileceğini gösteren gergin bir yay misali.',
+      urunAdi: 'Gergin Yay (Beyaz Tişört)', aciklama: 'Eğitimdeki vizyonun ne kadar ileriye gidebileceğini gösteren gergin bir yay misali.',
       urunUcreti: 0, ciziliUcret: 0,
       tasarimGorsel: 'landing_assets/design_gerginyay_beyaz.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
-      tasarimGenisligi: 18,
+      renk: 'Beyaz',
+      tasarimGenisligi: 26,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
@@ -81,11 +86,12 @@
     },
     {
       id: 6, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Gergin Yay (Kadın Kesim)', aciklama: 'Eğitimdeki vizyonun ne kadar ileriye gidebileceğini gösteren gergin bir yay misali.',
+      urunAdi: 'Gergin Yay (Siyah Tişört)', aciklama: 'Eğitimdeki vizyonun ne kadar ileriye gidebileceğini gösteren gergin bir yay misali.',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/design_gerginyay_beyaz.png',
-      tshirtGorsel: 'landing_assets/tshirt_kadin.png',
-      tasarimGenisligi: 18,
+      tasarimGorsel: 'landing_assets/design_gerginyay_siyah.png',
+      tshirtGorsel: 'landing_assets/tshirt_erkek.png',
+      renk: 'Siyah',
+      tasarimGenisligi: 26,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
@@ -94,11 +100,12 @@
     },
     {
       id: 7, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Klasik Öğretmen (Erkek Kesim)', aciklama: 'Derslig öğretmenlerinin klasikleşmiş vazgeçilmez tarzı.',
+      urunAdi: 'Klasik Öğretmen (Beyaz Tişört)', aciklama: 'Derslig öğretmenlerinin klasikleşmiş vazgeçilmez tarzı.',
       urunUcreti: 0, ciziliUcret: 0,
       tasarimGorsel: 'landing_assets/design_teacher.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
-      tasarimGenisligi: 18,
+      renk: 'Beyaz',
+      tasarimGenisligi: 26,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
@@ -107,11 +114,12 @@
     },
     {
       id: 8, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Klasik Öğretmen (Kadın Kesim)', aciklama: 'Derslig öğretmenlerinin klasikleşmiş vazgeçilmez tarzı.',
+      urunAdi: 'Klasik Öğretmen (Siyah Tişört)', aciklama: 'Derslig öğretmenlerinin klasikleşmiş vazgeçilmez tarzı.',
       urunUcreti: 0, ciziliUcret: 0,
       tasarimGorsel: 'landing_assets/design_teacher.png',
-      tshirtGorsel: 'landing_assets/tshirt_kadin.png',
-      tasarimGenisligi: 18,
+      tshirtGorsel: 'landing_assets/tshirt_erkek.png',
+      renk: 'Siyah',
+      tasarimGenisligi: 26,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
@@ -120,10 +128,11 @@
     },
     {
       id: 9, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Tatil Modu (Erkek Kesim)', aciklama: 'Öğretmenin tatil modu çoktan yüklendi!',
+      urunAdi: 'Tatil Modu (Beyaz Tişört)', aciklama: 'Öğretmenin tatil modu çoktan yüklendi!',
       urunUcreti: 0, ciziliUcret: 0,
       tasarimGorsel: 'landing_assets/design_tatilmodu_beyaz.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
+      renk: 'Beyaz',
       tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
@@ -133,10 +142,11 @@
     },
     {
       id: 10, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Tatil Modu (Kadın Kesim)', aciklama: 'Öğretmenin tatil modu çoktan yüklendi!',
+      urunAdi: 'Tatil Modu (Siyah Tişört)', aciklama: 'Öğretmenin tatil modu çoktan yüklendi!',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/design_tatilmodu_beyaz.png',
-      tshirtGorsel: 'landing_assets/tshirt_kadin.png',
+      tasarimGorsel: 'landing_assets/design_tatilmodu_siyah.png',
+      tshirtGorsel: 'landing_assets/tshirt_erkek.png',
+      renk: 'Siyah',
       tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
@@ -154,7 +164,7 @@
       paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Erkek Kesim', highlighted: true }
+        { text: 'Beyaz Renk', highlighted: true }
       ]
     },
     {
@@ -164,7 +174,7 @@
       paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Kadın Kesim', highlighted: true }
+        { text: 'Siyah Renk', highlighted: true }
       ]
     },
     {
@@ -174,7 +184,7 @@
       paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Erkek Kesim', highlighted: true }
+        { text: 'Beyaz Renk', highlighted: true }
       ]
     },
     {
@@ -184,7 +194,7 @@
       paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Kadın Kesim', highlighted: true }
+        { text: 'Siyah Renk', highlighted: true }
       ]
     },
     {
@@ -194,7 +204,7 @@
       paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Erkek Kesim', highlighted: true }
+        { text: 'Beyaz Renk', highlighted: true }
       ]
     },
     {
@@ -204,7 +214,7 @@
       paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Kadın Kesim', highlighted: true }
+        { text: 'Siyah Renk', highlighted: true }
       ]
     },
     {
@@ -214,7 +224,7 @@
       paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Erkek Kesim', highlighted: true }
+        { text: 'Beyaz Renk', highlighted: true }
       ]
     },
     {
@@ -224,7 +234,7 @@
       paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Kadın Kesim', highlighted: true }
+        { text: 'Siyah Renk', highlighted: true }
       ]
     },
     {
@@ -234,7 +244,7 @@
       paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Erkek Kesim', highlighted: true }
+        { text: 'Beyaz Renk', highlighted: true }
       ]
     },
     {
@@ -244,13 +254,13 @@
       paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Kadın Kesim', highlighted: true }
+        { text: 'Siyah Renk', highlighted: true }
       ]
     }
   ];
 
   // ─── VERİ KATMANI ───
-  const DB_VERSION = 11;
+  const DB_VERSION = 13;
   if (localStorage.getItem('derslig_db_ver') != DB_VERSION) {
     localStorage.removeItem('derslig_products');
     localStorage.removeItem('derslig_product_cards');
@@ -360,7 +370,7 @@
             <span>Yakınlaştırmak için tıkla</span>
           </div>
           <div class="zoom-wrapper">
-            <img src="${product.tshirtGorsel || 'landing_assets/tshirt_erkek.png'}" alt="Tişört" class="tshirt-preview">
+            <img src="${product.tshirtGorsel || 'landing_assets/tshirt_erkek.png'}" alt="Tişört" class="tshirt-preview" style="${product.renk === 'Siyah' ? 'filter:invert(0.9) brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.5));' : 'filter:drop-shadow(0 8px 15px rgba(0,0,0,.06));'}">
             <img src="${product.tasarimGorsel}" alt="${product.urunAdi}" class="design-preview" style="width:${dw}%">
           </div>
         </div>
@@ -375,9 +385,9 @@
               <option value="L">Beden: L</option>
               <option value="XL">Beden: XL</option>
             </select>
-            <select id="color-${product.id}" onclick="event.stopPropagation()" onchange="DersligEngine.updateCardColor(${product.id}, this.value)" style="padding:6px; border:1.5px solid #e5e7eb; border-radius:6px; font-family:'Nunito',sans-serif; font-size:12px; font-weight:700; color:#4b5563; flex:1; outline:none; cursor:pointer;">
-              <option value="#FFFFFF">Renk: Beyaz</option>
-              <option value="#111827">Renk: Siyah</option>
+            <select id="gender-${product.id}" onclick="event.stopPropagation()" onchange="DersligEngine.updateCardGender(${product.id}, this.value, '${product.renk}')" style="padding:6px; border:1.5px solid #e5e7eb; border-radius:6px; font-family:'Nunito',sans-serif; font-size:12px; font-weight:700; color:#4b5563; flex:1; outline:none; cursor:pointer;">
+              <option value="Erkek" selected>Kesim: Erkek</option>
+              <option value="Kadın">Kesim: Kadın</option>
             </select>
           </div>
           <div class="card-footer">
@@ -432,33 +442,27 @@
   }
 
   // ─── MVP SEÇİM ───
-  function updateCardColor(productId, hex) {
+  function updateCardGender(productId, gender, renk) {
     const cardContainer = document.querySelector(`.product-card[data-product-id="${productId}"]`);
     if(cardContainer) {
        const img = cardContainer.querySelector('.tshirt-preview');
-       const designImg = cardContainer.querySelector('.design-preview');
-       let base = (productId == 1 || productId == 2) ? 'design_teachermode' : 
-                  (productId == 3 || productId == 4) ? 'design_2ay3ay' : 
-                  (productId == 5 || productId == 6) ? 'design_gerginyay' : 
-                  (productId == 7 || productId == 8) ? 'design_teacher' : 'design_tatilmodu';
-       if(hex === '#FFFFFF') {
-         img.style.filter = 'drop-shadow(0 10px 15px rgba(0,0,0,0.05))';
-         if(designImg) designImg.src = (base === 'design_teacher') ? `landing_assets/${base}.png` : `landing_assets/${base}_beyaz.png`;
-       }
-       if(hex === '#111827') {
-         img.style.filter = 'invert(0.9) brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.5))';
-         if(designImg) designImg.src = (base === 'design_teacher') ? `landing_assets/${base}.png` : `landing_assets/${base}_siyah.png`;
+       if(gender === 'Kadın') {
+         img.src = 'landing_assets/tshirt_kadin.png';
+       } else {
+         img.src = 'landing_assets/tshirt_erkek.png';
        }
     }
   }
 
   function addToCartMVP(productId) {
     const sizeSelect = document.getElementById(`size-${productId}`);
-    const colorSelect = document.getElementById(`color-${productId}`);
+    const genderSelect = document.getElementById(`gender-${productId}`);
+    const product = getProductById(productId);
     
     window._selProductId = productId;
     window._selSize = sizeSelect ? sizeSelect.value : 'M';
-    window._selColor = colorSelect ? colorSelect.value : '#FFFFFF';
+    window._selGender = genderSelect ? genderSelect.value : 'Erkek';
+    window._selColor = product ? product.renk : 'Beyaz';
     window._selPos = 'Ön Büyük';
     
     showCheckoutModal();
@@ -514,9 +518,9 @@
   }
 
   // ─── TASARIM SEÇİM MODAL ───
-  window._selColor = '#FFFFFF';
+  window._selGender = 'Erkek';
+  window._selColor = 'Beyaz';
   window._selSize = 'M';
-  window._selView = 'Erkek';
   window._selPos = 'Ön Büyük';
   window._selProductId = null;
   
@@ -560,7 +564,7 @@
         
         <!-- Sol Canvas Alanı -->
         <div style="flex:1; background:#f9fafb; position:relative; display:flex; align-items:center; justify-content:center; border-right:1px solid #e5e7eb;">
-           <img src="${product.tshirtGorsel || 'landing_assets/tshirt_erkek.png'}" id="modalTshirtImg" style="width:75%; max-height:400px; object-fit:contain; filter:drop-shadow(0 10px 15px rgba(0,0,0,0.05)); transition:all 0.3s;">
+           <img src="${product.tshirtGorsel || 'landing_assets/tshirt_erkek.png'}" id="modalTshirtImg" style="width:75%; max-height:400px; object-fit:contain; transition:all 0.3s; ${product.renk === 'Siyah' ? 'filter:invert(0.9) brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.5));' : 'filter:drop-shadow(0 10px 15px rgba(0,0,0,0.05));'}">
            <img src="${product.tasarimGorsel}" id="modalDesignImg" style="position:absolute; top:42%; left:50%; transform:translate(-50%,-50%); width:${dw}%; pointer-events:none; transition:all 0.3s;">
         </div>
         
@@ -582,10 +586,10 @@
            </div>
 
            <div style="margin-bottom:20px;">
-             <div style="font-size:12px; font-weight:800; color:#374151; margin-bottom:8px; text-transform:uppercase;">Renk Seçimi</div>
+             <div style="font-size:12px; font-weight:800; color:#374151; margin-bottom:8px; text-transform:uppercase;">Kesim Seçimi</div>
              <div style="display:flex; gap:12px;">
-               <div onclick="DersligEngine.pickModalColor(this, '#FFFFFF')" class="modal-color-btn active" style="width:32px; height:32px; border-radius:50%; background:#FFF; border:2px solid #e5e7eb; cursor:pointer;"></div>
-               <div onclick="DersligEngine.pickModalColor(this, '#111827')" class="modal-color-btn" style="width:32px; height:32px; border-radius:50%; background:#111827; border:2px solid #e5e7eb; cursor:pointer;"></div>
+               <div onclick="DersligEngine.pickModalGender(this, 'Erkek')" class="modal-gender-btn active" style="padding:6px 16px; border:2px solid #09b0b9; background:#09b0b9; color:#fff; border-radius:8px; font-weight:700; cursor:pointer; font-size:13px;">Erkek</div>
+               <div onclick="DersligEngine.pickModalGender(this, 'Kadın')" class="modal-gender-btn" style="padding:6px 16px; border:2px solid #e5e7eb; background:#fff; color:#4b5563; border-radius:8px; font-weight:700; cursor:pointer; font-size:13px;">Kadın</div>
              </div>
            </div>
            
@@ -638,28 +642,27 @@
     }
   }
   
-  function pickModalColor(btn, hex) {
-    document.querySelectorAll('.modal-color-btn').forEach(b => {
+  function pickModalGender(btn, gender) {
+    window._selGender = gender;
+    const btns = document.querySelectorAll('.modal-gender-btn');
+    btns.forEach(b => {
       b.style.borderColor = '#e5e7eb';
+      b.style.background = '#fff';
+      b.style.color = '#4b5563';
       b.classList.remove('active');
     });
     btn.style.borderColor = '#09b0b9';
+    btn.style.background = '#09b0b9';
+    btn.style.color = '#fff';
     btn.classList.add('active');
-    window._selColor = hex;
     
-    let base = (window._selProductId == 1 || window._selProductId == 2) ? 'design_teachermode' : 
-               (window._selProductId == 3 || window._selProductId == 4) ? 'design_2ay3ay' : 
-               (window._selProductId == 5 || window._selProductId == 6) ? 'design_gerginyay' : 
-               (window._selProductId == 7 || window._selProductId == 8) ? 'design_teacher' : 'design_tatilmodu';
     const img = document.getElementById('modalTshirtImg');
-    const designImg = document.getElementById('modalDesignImg');
-    if(hex === '#FFFFFF') {
-      if(img) img.style.filter = 'drop-shadow(0 10px 15px rgba(0,0,0,0.05))';
-      if(designImg) designImg.src = (base === 'design_teacher') ? `landing_assets/${base}.png` : `landing_assets/${base}_beyaz.png`;
-    }
-    if(hex === '#111827') {
-      if(img) img.style.filter = 'invert(0.9) brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.5))';
-      if(designImg) designImg.src = (base === 'design_teacher') ? `landing_assets/${base}.png` : `landing_assets/${base}_siyah.png`;
+    if(img) {
+      if(gender === 'Kadın') {
+        img.src = 'landing_assets/tshirt_kadin.png';
+      } else {
+        img.src = 'landing_assets/tshirt_erkek.png';
+      }
     }
   }
   
@@ -708,11 +711,12 @@
   
   function addToCartFromModal() {
     closeDesignModal();
-    showCheckoutModal(window._selProductId, window._selColor, window._selSize);
+    const product = getProductById(window._selProductId);
+    showCheckoutModal(window._selProductId, product ? product.renk : 'Beyaz', window._selSize, window._selGender);
   }
   
   // ─── SİPARİŞ / CHECKOUT MODAL ───
-  function showCheckoutModal(productId, colorHex, size) {
+  function showCheckoutModal(productId, colorName, size, gender) {
     const product = getProductById(productId);
     if (!product) return;
     
@@ -732,8 +736,8 @@
       padding: 20px;
     `;
     
-    const colorNames = { '#FFFFFF': 'Beyaz', '#111827': 'Siyah', '#9ca3af': 'Gri' };
-    const cName = colorNames[colorHex] || 'Özel';
+    const cName = colorName || 'Beyaz';
+    const cGender = gender || window._selGender || 'Erkek';
     
     // Öğretmen bilgileri Derslig'den geliyormuş gibi (Mock Data)
     const teacherData = {
@@ -758,7 +762,7 @@
             </div>
             <div>
               <div style="font-size:15px; font-weight:800; color:#111827; margin-bottom:4px;">${product.urunAdi}</div>
-              <div style="font-size:13px; font-weight:700; color:#09b0b9;">Beden: ${size} &nbsp;|&nbsp; Renk: ${cName}</div>
+              <div style="font-size:13px; font-weight:700; color:#09b0b9;">Beden: ${size} &nbsp;|&nbsp; Kesim: ${cGender} &nbsp;|&nbsp; Renk: ${cName}</div>
             </div>
           </div>
           
@@ -1040,11 +1044,11 @@
     closeDetail: closeDetailModal,
     showDesign: showDesignModal,
     closeDesign: closeDesignModal,
-    pickModalColor: pickModalColor,
+    pickModalGender: pickModalGender,
     pickModalSize: pickModalSize,
     pickModalPos: pickModalPos,
     addToCartFromModal: addToCartFromModal,
-    updateCardColor: updateCardColor,
+    updateCardGender: updateCardGender,
     addToCartMVP: addToCartMVP,
     showCheckoutModal: showCheckoutModal,
     submitOrder: submitOrder,
