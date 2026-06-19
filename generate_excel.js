@@ -20,8 +20,15 @@ const variantRows = [];
 variantRows.push([
   'variant_key', 'tasarim_kodu', 'tasarim_adi', 'cinsiyet', 'gomlek_renk_label', 'gomlek_renk_hex', 
   'beden', 'productId', 'gender', 'productSize', 'productColor', 'productColorLabel', 
-  'designId', 'colorway', 'price_ic_maliyet', 'not'
+  'designId', 'colorway', 'price_ic_maliyet', 'not', 'tisho_tasarim_link'
 ]);
+
+const tishoLinks = {
+  'TMOD-OFF-Erkek-Beyaz': 'https://www.tisho.com/tasarim#getDesign=19ee1582bdce7e74d162',
+  'TMOD-OFF-Kadın-Beyaz': 'https://www.tisho.com/tasarim#getDesign=19ee158af5b46ee015c2',
+  'TMOD-OFF-Erkek-Siyah': 'https://www.tisho.com/tasarim#getDesign=19ee1582bdce7e74d162',
+  'TMOD-OFF-Kadın-Siyah': 'https://www.tisho.com/tasarim#getDesign=19ee1582bdce7e74d162'
+};
 
 for (const design of designs) {
   for (const gender of genders) {
@@ -45,7 +52,8 @@ for (const design of designs) {
           designId,
           color.colorway,
           250, 
-          'Otomatik dolduruldu'
+          'Otomatik dolduruldu',
+          tishoLinks[`${design.code}-${gender}-${color.label}`] || ''
         ]);
       }
     }
@@ -91,7 +99,7 @@ const wsVaryant = xlsx.utils.aoa_to_sheet(variantRows);
 wsVaryant['!cols'] = [
   { wch: 25 }, { wch: 15 }, { wch: 20 }, { wch: 10 }, { wch: 18 }, { wch: 15 },
   { wch: 8 }, { wch: 10 }, { wch: 10 }, { wch: 12 }, { wch: 15 }, { wch: 18 },
-  { wch: 10 }, { wch: 10 }, { wch: 15 }, { wch: 20 }
+  { wch: 10 }, { wch: 10 }, { wch: 15 }, { wch: 20 }, { wch: 60 }
 ];
 wb.Sheets['Varyantlar'] = wsVaryant;
 
