@@ -77,7 +77,7 @@
       tasarimGorsel: 'landing_assets/design_gerginyay_beyaz.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
       renk: 'Beyaz',
-      tasarimGenisligi: 26,
+      tasarimGenisligi: 30,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
@@ -91,7 +91,7 @@
       tasarimGorsel: 'landing_assets/design_gerginyay_siyah.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
       renk: 'Siyah',
-      tasarimGenisligi: 26,
+      tasarimGenisligi: 30,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
@@ -260,7 +260,7 @@
   ];
 
   // ─── VERİ KATMANI ───
-  const DB_VERSION = 17;
+  const DB_VERSION = 18;
   if (localStorage.getItem('derslig_db_ver') != DB_VERSION) {
     localStorage.removeItem('derslig_products');
     localStorage.removeItem('derslig_product_cards');
