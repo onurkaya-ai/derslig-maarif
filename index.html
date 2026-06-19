@@ -108,7 +108,10 @@ img{max-width:100%;display:block}
 .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
 .product-card{background:#fff;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden;transition:all .3s ease}
 .product-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.06);border-color:#09b0b9}
-.card-img{position:relative;background:#f9fafb;display:flex;align-items:center;justify-content:center;padding:28px 20px;min-height:220px;overflow:hidden}
+.card-img{position:relative;background:#f9fafb;display:flex;align-items:center;justify-content:center;padding:28px 20px;min-height:220px;overflow:hidden;cursor:pointer}
+.card-img .zoom-text-overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(9,176,185,0.95);color:#fff;padding:12px 18px;border-radius:12px;font-weight:800;font-size:13px;opacity:0;transition:opacity .2s ease;z-index:10;pointer-events:none;box-shadow:0 8px 20px rgba(0,0,0,0.2);display:flex;flex-direction:column;align-items:center;gap:6px}
+.card-img:hover .zoom-text-overlay{opacity:1}
+.card-img.is-zoomed .zoom-text-overlay{opacity:0 !important}
 .card-img .zoom-wrapper{position:relative;width:70%;transition:transform .15s ease-out;pointer-events:none;transform-origin:center center}
 .card-img .tshirt-preview{width:100%;height:auto;object-fit:contain;position:relative;z-index:2;display:block;filter:drop-shadow(0 8px 15px rgba(0,0,0,.06))}
 .card-img .design-preview{position:absolute;top:32%;left:50%;transform:translate(-50%,-50%);z-index:3;pointer-events:none}

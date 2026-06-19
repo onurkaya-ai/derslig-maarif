@@ -94,9 +94,9 @@
     },
     {
       id: 7, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Deniz Kabuğu (Erkek Kesim)', aciklama: 'Öğretmenin öğrencilerine fısıldadığı o uçsuz bucaksız deniz ve ufuk.',
+      urunAdi: 'Klasik Öğretmen (Erkek Kesim)', aciklama: 'Derslig öğretmenlerinin klasikleşmiş vazgeçilmez tarzı.',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/design_denizkabugu.png',
+      tasarimGorsel: 'landing_assets/design_teacher.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
       tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
@@ -107,9 +107,35 @@
     },
     {
       id: 8, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Deniz Kabuğu (Kadın Kesim)', aciklama: 'Öğretmenin öğrencilerine fısıldadığı o uçsuz bucaksız deniz ve ufuk.',
+      urunAdi: 'Klasik Öğretmen (Kadın Kesim)', aciklama: 'Derslig öğretmenlerinin klasikleşmiş vazgeçilmez tarzı.',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/design_denizkabugu.png',
+      tasarimGorsel: 'landing_assets/design_teacher.png',
+      tshirtGorsel: 'landing_assets/tshirt_kadin.png',
+      tasarimGenisligi: 18,
+      fiyatYazisi: 'Sınırlı Üretim',
+      taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
+      aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
+      kdvOrani: 20, kullanimMiktari: 'Sınırsız',
+      createdAt: '2026-06-19'
+    },
+    {
+      id: 9, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
+      urunAdi: 'Tatil Modu (Erkek Kesim)', aciklama: 'Öğretmenin tatil modu çoktan yüklendi!',
+      urunUcreti: 0, ciziliUcret: 0,
+      tasarimGorsel: 'landing_assets/design_tatilmodu_beyaz.png',
+      tshirtGorsel: 'landing_assets/tshirt_erkek.png',
+      tasarimGenisligi: 18,
+      fiyatYazisi: 'Sınırlı Üretim',
+      taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
+      aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
+      kdvOrani: 20, kullanimMiktari: 'Sınırsız',
+      createdAt: '2026-06-19'
+    },
+    {
+      id: 10, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
+      urunAdi: 'Tatil Modu (Kadın Kesim)', aciklama: 'Öğretmenin tatil modu çoktan yüklendi!',
+      urunUcreti: 0, ciziliUcret: 0,
+      tasarimGorsel: 'landing_assets/design_tatilmodu_beyaz.png',
       tshirtGorsel: 'landing_assets/tshirt_kadin.png',
       tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
@@ -200,11 +226,31 @@
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
         { text: 'Kadın Kesim', highlighted: true }
       ]
+    },
+    {
+      id: 109, productId: 9, tur: 'Ürün',
+      gecerliSiniflar: [], etiket: 'Yeni', etiketStil: 'teal',
+      siralama: 9, hedefSayfalar: ['Ana Sayfa', 'Mağaza'],
+      paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
+        { text: '%100 Organik Pamuk', highlighted: true },
+        { text: 'Nefes alan kumaş yapısı', highlighted: false },
+        { text: 'Erkek Kesim', highlighted: true }
+      ]
+    },
+    {
+      id: 110, productId: 10, tur: 'Ürün',
+      gecerliSiniflar: [], etiket: 'Yeni', etiketStil: 'pink',
+      siralama: 10, hedefSayfalar: ['Ana Sayfa', 'Mağaza'],
+      paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
+        { text: '%100 Organik Pamuk', highlighted: true },
+        { text: 'Nefes alan kumaş yapısı', highlighted: false },
+        { text: 'Kadın Kesim', highlighted: true }
+      ]
     }
   ];
 
   // ─── VERİ KATMANI ───
-  const DB_VERSION = 8;
+  const DB_VERSION = 11;
   if (localStorage.getItem('derslig_db_ver') != DB_VERSION) {
     localStorage.removeItem('derslig_products');
     localStorage.removeItem('derslig_product_cards');
@@ -282,8 +328,8 @@
       }
     }
 
-    // Tasarım genişliği küçültüldü (MVP tasarımsal görünüm)
-    const dw = (product.tasarimGenisligi || 14) * 0.95;
+    // Tasarım genişliği küçültüldü (Kullanıcı isteği: belli edilen alan kadar)
+    const dw = (product.tasarimGenisligi || 14) * 0.55;
 
     // Özellikler (varsa kartın altında göster)
     let featuresHTML = '';
@@ -303,7 +349,16 @@
 
     return `
       <div class="product-card reveal ${delayClass}" data-card-id="${card.id}" data-product-id="${card.productId}">
-        <div class="card-img" onmousemove="DersligEngine.handleZoom(event, this)" onmouseleave="DersligEngine.resetZoom(this)">
+        <div class="card-img" onclick="DersligEngine.toggleZoom(event, this)">
+          <div class="zoom-text-overlay">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+            <span>Yakınlaştırmak için tıkla</span>
+          </div>
           <div class="zoom-wrapper">
             <img src="${product.tshirtGorsel || 'landing_assets/tshirt_erkek.png'}" alt="Tişört" class="tshirt-preview">
             <img src="${product.tasarimGorsel}" alt="${product.urunAdi}" class="design-preview" style="width:${dw}%">
@@ -384,14 +439,15 @@
        const designImg = cardContainer.querySelector('.design-preview');
        let base = (productId == 1 || productId == 2) ? 'design_teachermode' : 
                   (productId == 3 || productId == 4) ? 'design_2ay3ay' : 
-                  (productId == 5 || productId == 6) ? 'design_gerginyay' : 'design_denizkabugu';
+                  (productId == 5 || productId == 6) ? 'design_gerginyay' : 
+                  (productId == 7 || productId == 8) ? 'design_teacher' : 'design_tatilmodu';
        if(hex === '#FFFFFF') {
          img.style.filter = 'drop-shadow(0 10px 15px rgba(0,0,0,0.05))';
-         if(designImg) designImg.src = (base === 'design_denizkabugu') ? `landing_assets/${base}.png` : `landing_assets/${base}_beyaz.png`;
+         if(designImg) designImg.src = (base === 'design_teacher') ? `landing_assets/${base}.png` : `landing_assets/${base}_beyaz.png`;
        }
        if(hex === '#111827') {
          img.style.filter = 'invert(0.9) brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.5))';
-         if(designImg) designImg.src = (base === 'design_denizkabugu') ? `landing_assets/${base}.png` : `landing_assets/${base}_siyah.png`;
+         if(designImg) designImg.src = (base === 'design_teacher') ? `landing_assets/${base}.png` : `landing_assets/${base}_siyah.png`;
        }
     }
   }
@@ -409,26 +465,51 @@
   }
 
   // ─── ZOOM EFEKT FONKSİYONLARI ───
-  function handleZoom(event, el) {
-    const rect = el.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
+  function toggleZoom(event, el) {
     const wrapper = el.querySelector('.zoom-wrapper');
-    if(wrapper) {
-      wrapper.style.transformOrigin = `${x}% ${y}%`;
-      wrapper.style.transform = 'scale(3.0)';
-    }
-  }
-
-  function resetZoom(el) {
-    const wrapper = el.querySelector('.zoom-wrapper');
-    if(wrapper) {
+    if(!wrapper) return;
+    
+    if(el.classList.contains('is-zoomed')) {
+      // Zoom out
+      el.classList.remove('is-zoomed');
       wrapper.style.transform = 'scale(1)';
       setTimeout(() => {
         if(wrapper.style.transform === 'scale(1)') {
             wrapper.style.transformOrigin = 'center center';
         }
       }, 150);
+      el.onmousemove = null;
+      el.onmouseleave = null;
+    } else {
+      // Zoom in
+      el.classList.add('is-zoomed');
+      const rect = el.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      wrapper.style.transformOrigin = `${x}% ${y}%`;
+      wrapper.style.transform = 'scale(3.0)';
+      
+      // Pan on mousemove
+      el.onmousemove = function(e) {
+        if(!el.classList.contains('is-zoomed')) return;
+        const r = el.getBoundingClientRect();
+        const nx = ((e.clientX - r.left) / r.width) * 100;
+        const ny = ((e.clientY - r.top) / r.height) * 100;
+        wrapper.style.transformOrigin = `${nx}% ${ny}%`;
+      };
+      
+      // Reset if mouse leaves the element while zoomed
+      el.onmouseleave = function() {
+        el.classList.remove('is-zoomed');
+        wrapper.style.transform = 'scale(1)';
+        setTimeout(() => {
+          if(wrapper.style.transform === 'scale(1)') {
+              wrapper.style.transformOrigin = 'center center';
+          }
+        }, 150);
+        el.onmousemove = null;
+        el.onmouseleave = null;
+      };
     }
   }
 
@@ -447,7 +528,7 @@
     // Varsa eskisini kaldır
     closeDesignModal();
 
-    const dw = product.tasarimGenisligi || 14;
+    const dw = (product.tasarimGenisligi || 14) * 0.65;
     
     const modal = document.createElement('div');
     modal.id = 'derslig-design-modal';
@@ -568,16 +649,17 @@
     
     let base = (window._selProductId == 1 || window._selProductId == 2) ? 'design_teachermode' : 
                (window._selProductId == 3 || window._selProductId == 4) ? 'design_2ay3ay' : 
-               (window._selProductId == 5 || window._selProductId == 6) ? 'design_gerginyay' : 'design_denizkabugu';
+               (window._selProductId == 5 || window._selProductId == 6) ? 'design_gerginyay' : 
+               (window._selProductId == 7 || window._selProductId == 8) ? 'design_teacher' : 'design_tatilmodu';
     const img = document.getElementById('modalTshirtImg');
     const designImg = document.getElementById('modalDesignImg');
     if(hex === '#FFFFFF') {
       if(img) img.style.filter = 'drop-shadow(0 10px 15px rgba(0,0,0,0.05))';
-      if(designImg) designImg.src = (base === 'design_denizkabugu') ? `landing_assets/${base}.png` : `landing_assets/${base}_beyaz.png`;
+      if(designImg) designImg.src = (base === 'design_teacher') ? `landing_assets/${base}.png` : `landing_assets/${base}_beyaz.png`;
     }
     if(hex === '#111827') {
       if(img) img.style.filter = 'invert(0.9) brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.5))';
-      if(designImg) designImg.src = (base === 'design_denizkabugu') ? `landing_assets/${base}.png` : `landing_assets/${base}_siyah.png`;
+      if(designImg) designImg.src = (base === 'design_teacher') ? `landing_assets/${base}.png` : `landing_assets/${base}_siyah.png`;
     }
   }
   
@@ -970,8 +1052,7 @@
     getProducts: getProducts,
     getProductCards: getProductCards,
     filterCards: filterCards,
-    handleZoom: handleZoom,
-    resetZoom: resetZoom,
+    toggleZoom: toggleZoom,
     resetData: function () {
       localStorage.setItem('derslig_products', JSON.stringify(DEFAULT_PRODUCTS));
       localStorage.setItem('derslig_product_cards', JSON.stringify(DEFAULT_CARDS));
