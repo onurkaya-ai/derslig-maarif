@@ -133,7 +133,7 @@
       tasarimGorsel: 'landing_assets/design_tatilmodu_beyaz.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
       renk: 'Beyaz',
-      tasarimGenisligi: 18,
+      tasarimGenisligi: 24,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
@@ -147,7 +147,7 @@
       tasarimGorsel: 'landing_assets/design_tatilmodu_siyah.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
       renk: 'Siyah',
-      tasarimGenisligi: 18,
+      tasarimGenisligi: 24,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
@@ -260,7 +260,7 @@
   ];
 
   // ─── VERİ KATMANI ───
-  const DB_VERSION = 13;
+  const DB_VERSION = 14;
   if (localStorage.getItem('derslig_db_ver') != DB_VERSION) {
     localStorage.removeItem('derslig_products');
     localStorage.removeItem('derslig_product_cards');
@@ -370,7 +370,7 @@
             <span>Yakınlaştırmak için tıkla</span>
           </div>
           <div class="zoom-wrapper">
-            <img src="${product.tshirtGorsel || 'landing_assets/tshirt_erkek.png'}" alt="Tişört" class="tshirt-preview" style="${product.renk === 'Siyah' ? 'filter:invert(0.9) brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.5));' : 'filter:drop-shadow(0 8px 15px rgba(0,0,0,.06));'}">
+            <img src="${product.tshirtGorsel || 'landing_assets/tshirt_erkek.png'}" alt="Tişört" class="tshirt-preview" style="${product.renk === 'Siyah' ? 'filter:grayscale(1) brightness(0.18) contrast(1.4) drop-shadow(0 10px 15px rgba(0,0,0,0.5));' : 'filter:drop-shadow(0 8px 15px rgba(0,0,0,.06));'}">
             <img src="${product.tasarimGorsel}" alt="${product.urunAdi}" class="design-preview" style="width:${dw}%">
           </div>
         </div>
@@ -564,7 +564,7 @@
         
         <!-- Sol Canvas Alanı -->
         <div style="flex:1; background:#f9fafb; position:relative; display:flex; align-items:center; justify-content:center; border-right:1px solid #e5e7eb;">
-           <img src="${product.tshirtGorsel || 'landing_assets/tshirt_erkek.png'}" id="modalTshirtImg" style="width:75%; max-height:400px; object-fit:contain; transition:all 0.3s; ${product.renk === 'Siyah' ? 'filter:invert(0.9) brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.5));' : 'filter:drop-shadow(0 10px 15px rgba(0,0,0,0.05));'}">
+           <img src="${product.tshirtGorsel || 'landing_assets/tshirt_erkek.png'}" id="modalTshirtImg" style="width:75%; max-height:400px; object-fit:contain; transition:all 0.3s; ${product.renk === 'Siyah' ? 'filter:grayscale(1) brightness(0.18) contrast(1.4) drop-shadow(0 10px 15px rgba(0,0,0,0.5));' : 'filter:drop-shadow(0 10px 15px rgba(0,0,0,0.05));'}">
            <img src="${product.tasarimGorsel}" id="modalDesignImg" style="position:absolute; top:42%; left:50%; transform:translate(-50%,-50%); width:${dw}%; pointer-events:none; transition:all 0.3s;">
         </div>
         
