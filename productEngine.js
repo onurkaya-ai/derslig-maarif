@@ -100,9 +100,9 @@
     },
     {
       id: 7, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Klasik Öğretmen (Beyaz Tişört)', aciklama: 'Derslig öğretmenlerinin klasikleşmiş vazgeçilmez tarzı.',
+      urunAdi: 'Renkli Matematik (Beyaz Tişört)', aciklama: 'Matematiği renkli bir dille anlatan harika bir tasarım.',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/design_teacher.png',
+      tasarimGorsel: 'landing_assets/design_teacher_beyaz.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
       renk: 'Beyaz',
       tasarimGenisligi: 26,
@@ -114,9 +114,9 @@
     },
     {
       id: 8, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Klasik Öğretmen (Siyah Tişört)', aciklama: 'Derslig öğretmenlerinin klasikleşmiş vazgeçilmez tarzı.',
+      urunAdi: 'Renkli Matematik (Siyah Tişört)', aciklama: 'Matematiği renkli bir dille anlatan harika bir tasarım.',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/design_teacher.png',
+      tasarimGorsel: 'landing_assets/design_teacher_siyah.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
       renk: 'Siyah',
       tasarimGenisligi: 26,
@@ -260,7 +260,7 @@
   ];
 
   // ─── VERİ KATMANI ───
-  const DB_VERSION = 14;
+  const DB_VERSION = 15;
   if (localStorage.getItem('derslig_db_ver') != DB_VERSION) {
     localStorage.removeItem('derslig_products');
     localStorage.removeItem('derslig_product_cards');
