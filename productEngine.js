@@ -12,159 +12,199 @@
 (function () {
   'use strict';
 
-  // ─── VARSAYILAN ÜRÜNLER (6 tişört) ───
+  // ─── VARSAYILAN ÜRÜNLER (4 tişört: 2 Tasarım x 2 Cinsiyet) ───
   const DEFAULT_PRODUCTS = [
     {
       id: 1, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Pusulamız Sensin', aciklama: 'Kırık bir pusuladan özgürlüğe kanat çırpan kuşlar... Tıpkı bir öğretmenin öğrencilerine kattığı vizyon gibi.',
+      urunAdi: 'Teacher Mode OFF (Erkek Kesim)', aciklama: 'Okul zili çaldı, tatil başladı! Öğretmen Modu kapalı konumda.',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/yeni_tasarim_1.jpg',
-      tshirtGorsel: 'landing_assets/tshirt_erkek.png',
-      tasarimGenisligi: 13,
-      fiyatYazisi: 'Sınırlı Üretim',
-      taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
-      aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
-      kdvOrani: 20, kullanimMiktari: 'Sınırsız',
-      createdAt: '2026-01-01'
-    },
-    {
-      id: 2, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Tatil Molası', aciklama: 'Tükenmez bir kalemin içindeki küçük sığınak. Ders aralarında sıcak bir kahve ve tatil hayalleri...',
-      urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/yeni_tasarim_2.jpg',
+      tasarimGorsel: 'landing_assets/design_teachermode_beyaz.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
       tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
       kdvOrani: 20, kullanimMiktari: 'Sınırsız',
-      createdAt: '2026-01-01'
+      createdAt: '2026-06-19'
+    },
+    {
+      id: 2, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
+      urunAdi: 'Teacher Mode OFF (Kadın Kesim)', aciklama: 'Okul zili çaldı, tatil başladı! Öğretmen Modu kapalı konumda.',
+      urunUcreti: 0, ciziliUcret: 0,
+      tasarimGorsel: 'landing_assets/design_teachermode_beyaz.png',
+      tshirtGorsel: 'landing_assets/tshirt_kadin.png',
+      tasarimGenisligi: 18,
+      fiyatYazisi: 'Sınırlı Üretim',
+      taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
+      aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
+      kdvOrani: 20, kullanimMiktari: 'Sınırsız',
+      createdAt: '2026-06-19'
     },
     {
       id: 3, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Kırmızı Kalemin Tatili', aciklama: 'Bütün yıl durmadan yazan o kırmızı kalem artık dinleniyor.',
+      urunAdi: 'Tatil Hesabı (Erkek Kesim)', aciklama: '"Öğretmenler 3 ay tatil yapıyor" efsanesine son noktayı koyan ispat.',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/landing_design_3.png',
+      tasarimGorsel: 'landing_assets/design_2ay3ay_beyaz.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
-      tasarimGenisligi: 14,
+      tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
       kdvOrani: 20, kullanimMiktari: 'Sınırsız',
-      createdAt: '2026-01-01'
+      createdAt: '2026-06-19'
     },
     {
       id: 4, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Tatil Hesabı', aciklama: '"Öğretmenler 3 ay tatil yapıyor" efsanesine son noktayı koyan ispat.',
+      urunAdi: 'Tatil Hesabı (Kadın Kesim)', aciklama: '"Öğretmenler 3 ay tatil yapıyor" efsanesine son noktayı koyan ispat.',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/landing_design_4.png',
-      tshirtGorsel: 'landing_assets/tshirt_erkek.png',
-      tasarimGenisligi: 13,
+      tasarimGorsel: 'landing_assets/design_2ay3ay_beyaz.png',
+      tshirtGorsel: 'landing_assets/tshirt_kadin.png',
+      tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
       kdvOrani: 20, kullanimMiktari: 'Sınırsız',
-      createdAt: '2026-01-01'
+      createdAt: '2026-06-19'
     },
     {
       id: 5, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Teacher Mode OFF', aciklama: 'Okul zili çaldı, tatil başladı! Öğretmen Modu kapalı konumda.',
+      urunAdi: 'Gergin Yay (Erkek Kesim)', aciklama: 'Eğitimdeki vizyonun ne kadar ileriye gidebileceğini gösteren gergin bir yay misali.',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/landing_design_5.png',
+      tasarimGorsel: 'landing_assets/design_gerginyay_beyaz.png',
       tshirtGorsel: 'landing_assets/tshirt_erkek.png',
-      tasarimGenisligi: 13,
+      tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
       kdvOrani: 20, kullanimMiktari: 'Sınırsız',
-      createdAt: '2026-01-01'
+      createdAt: '2026-06-19'
     },
     {
       id: 6, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
-      urunAdi: 'Kalemden Kanatlara', aciklama: 'Öğretmenin kaleminden dökülen bilgi, gökyüzüne kanat çırpan kuşa dönüşür.',
+      urunAdi: 'Gergin Yay (Kadın Kesim)', aciklama: 'Eğitimdeki vizyonun ne kadar ileriye gidebileceğini gösteren gergin bir yay misali.',
       urunUcreti: 0, ciziliUcret: 0,
-      tasarimGorsel: 'landing_assets/landing_design_6.png',
-      tshirtGorsel: 'landing_assets/tshirt_erkek.png',
-      tasarimGenisligi: 14,
+      tasarimGorsel: 'landing_assets/design_gerginyay_beyaz.png',
+      tshirtGorsel: 'landing_assets/tshirt_kadin.png',
+      tasarimGenisligi: 18,
       fiyatYazisi: 'Sınırlı Üretim',
       taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
       aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
       kdvOrani: 20, kullanimMiktari: 'Sınırsız',
-      createdAt: '2026-01-01'
+      createdAt: '2026-06-19'
+    },
+    {
+      id: 7, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
+      urunAdi: 'Deniz Kabuğu (Erkek Kesim)', aciklama: 'Öğretmenin öğrencilerine fısıldadığı o uçsuz bucaksız deniz ve ufuk.',
+      urunUcreti: 0, ciziliUcret: 0,
+      tasarimGorsel: 'landing_assets/design_denizkabugu.png',
+      tshirtGorsel: 'landing_assets/tshirt_erkek.png',
+      tasarimGenisligi: 18,
+      fiyatYazisi: 'Sınırlı Üretim',
+      taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
+      aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
+      kdvOrani: 20, kullanimMiktari: 'Sınırsız',
+      createdAt: '2026-06-19'
+    },
+    {
+      id: 8, tur: 'Tekil Ürün', kategori: 'Öğretmen Koleksiyonu',
+      urunAdi: 'Deniz Kabuğu (Kadın Kesim)', aciklama: 'Öğretmenin öğrencilerine fısıldadığı o uçsuz bucaksız deniz ve ufuk.',
+      urunUcreti: 0, ciziliUcret: 0,
+      tasarimGorsel: 'landing_assets/design_denizkabugu.png',
+      tshirtGorsel: 'landing_assets/tshirt_kadin.png',
+      tasarimGenisligi: 18,
+      fiyatYazisi: 'Sınırlı Üretim',
+      taksitSayisi: 0, gecerliAy: 0, gecerliGun: 0,
+      aktivasyonOnEki: '', muhasebeKodu: '', muhasebeTipi: 'Hizmet',
+      kdvOrani: 20, kullanimMiktari: 'Sınırsız',
+      createdAt: '2026-06-19'
     }
   ];
 
   const DEFAULT_CARDS = [
     {
       id: 101, productId: 1, tur: 'Ürün',
-      gecerliSiniflar: [], etiket: '⭐ En Popüler', etiketStil: 'teal',
+      gecerliSiniflar: [], etiket: '⭐ Popüler', etiketStil: 'teal',
       siralama: 1, hedefSayfalar: ['Ana Sayfa', 'Mağaza'],
-      paketDetayi: '', ozellikler: [
+      paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Özel tasarım baskı', highlighted: true },
-        { text: 'Uzun ömürlü renkler', highlighted: false }
+        { text: 'Erkek Kesim', highlighted: true }
       ]
     },
     {
       id: 102, productId: 2, tur: 'Ürün',
-      gecerliSiniflar: [], etiket: 'Yeni', etiketStil: 'teal',
+      gecerliSiniflar: [], etiket: '⭐ Popüler', etiketStil: 'pink',
       siralama: 2, hedefSayfalar: ['Ana Sayfa', 'Mağaza'],
-      paketDetayi: '', ozellikler: [
+      paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Özel tasarım baskı', highlighted: true },
-        { text: 'Uzun ömürlü renkler', highlighted: false }
+        { text: 'Kadın Kesim', highlighted: true }
       ]
     },
     {
       id: 103, productId: 3, tur: 'Ürün',
-      gecerliSiniflar: [], etiket: '', etiketStil: 'teal',
+      gecerliSiniflar: [], etiket: 'Yeni', etiketStil: 'teal',
       siralama: 3, hedefSayfalar: ['Ana Sayfa', 'Mağaza'],
-      paketDetayi: '', ozellikler: [
+      paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Özel tasarım baskı', highlighted: true },
-        { text: 'Uzun ömürlü renkler', highlighted: false }
+        { text: 'Erkek Kesim', highlighted: true }
       ]
     },
     {
       id: 104, productId: 4, tur: 'Ürün',
-      gecerliSiniflar: [], etiket: '', etiketStil: 'teal',
+      gecerliSiniflar: [], etiket: 'Yeni', etiketStil: 'pink',
       siralama: 4, hedefSayfalar: ['Ana Sayfa', 'Mağaza'],
-      paketDetayi: '', ozellikler: [
+      paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Özel tasarım baskı', highlighted: true },
-        { text: 'Uzun ömürlü renkler', highlighted: false }
+        { text: 'Kadın Kesim', highlighted: true }
       ]
     },
     {
       id: 105, productId: 5, tur: 'Ürün',
-      gecerliSiniflar: [], etiket: '', etiketStil: 'teal',
+      gecerliSiniflar: [], etiket: 'Trend', etiketStil: 'gold',
       siralama: 5, hedefSayfalar: ['Ana Sayfa', 'Mağaza'],
-      paketDetayi: '', ozellikler: [
+      paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Özel tasarım baskı', highlighted: true },
-        { text: 'Uzun ömürlü renkler', highlighted: false }
+        { text: 'Erkek Kesim', highlighted: true }
       ]
     },
     {
       id: 106, productId: 6, tur: 'Ürün',
-      gecerliSiniflar: [], etiket: 'Misyon', etiketStil: 'gold',
+      gecerliSiniflar: [], etiket: 'Trend', etiketStil: 'gold',
       siralama: 6, hedefSayfalar: ['Ana Sayfa', 'Mağaza'],
-      paketDetayi: '', ozellikler: [
+      paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
         { text: '%100 Organik Pamuk', highlighted: true },
         { text: 'Nefes alan kumaş yapısı', highlighted: false },
-        { text: 'Özel tasarım baskı', highlighted: true },
-        { text: 'Uzun ömürlü renkler', highlighted: false }
+        { text: 'Kadın Kesim', highlighted: true }
+      ]
+    },
+    {
+      id: 107, productId: 7, tur: 'Ürün',
+      gecerliSiniflar: [], etiket: 'Klasik', etiketStil: 'teal',
+      siralama: 7, hedefSayfalar: ['Ana Sayfa', 'Mağaza'],
+      paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
+        { text: '%100 Organik Pamuk', highlighted: true },
+        { text: 'Nefes alan kumaş yapısı', highlighted: false },
+        { text: 'Erkek Kesim', highlighted: true }
+      ]
+    },
+    {
+      id: 108, productId: 8, tur: 'Ürün',
+      gecerliSiniflar: [], etiket: 'Klasik', etiketStil: 'pink',
+      siralama: 8, hedefSayfalar: ['Ana Sayfa', 'Mağaza'],
+      paketDetayi: 'Öğretmenler için özel tasarım', ozellikler: [
+        { text: '%100 Organik Pamuk', highlighted: true },
+        { text: 'Nefes alan kumaş yapısı', highlighted: false },
+        { text: 'Kadın Kesim', highlighted: true }
       ]
     }
   ];
 
   // ─── VERİ KATMANI ───
-  const DB_VERSION = 4;
+  const DB_VERSION = 8;
   if (localStorage.getItem('derslig_db_ver') != DB_VERSION) {
     localStorage.removeItem('derslig_products');
     localStorage.removeItem('derslig_product_cards');
@@ -341,8 +381,18 @@
     const cardContainer = document.querySelector(`.product-card[data-product-id="${productId}"]`);
     if(cardContainer) {
        const img = cardContainer.querySelector('.tshirt-preview');
-       if(hex === '#FFFFFF') img.style.filter = 'drop-shadow(0 10px 15px rgba(0,0,0,0.05))';
-       if(hex === '#111827') img.style.filter = 'invert(0.9) brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.5))';
+       const designImg = cardContainer.querySelector('.design-preview');
+       let base = (productId == 1 || productId == 2) ? 'design_teachermode' : 
+                  (productId == 3 || productId == 4) ? 'design_2ay3ay' : 
+                  (productId == 5 || productId == 6) ? 'design_gerginyay' : 'design_denizkabugu';
+       if(hex === '#FFFFFF') {
+         img.style.filter = 'drop-shadow(0 10px 15px rgba(0,0,0,0.05))';
+         if(designImg) designImg.src = (base === 'design_denizkabugu') ? `landing_assets/${base}.png` : `landing_assets/${base}_beyaz.png`;
+       }
+       if(hex === '#111827') {
+         img.style.filter = 'invert(0.9) brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.5))';
+         if(designImg) designImg.src = (base === 'design_denizkabugu') ? `landing_assets/${base}.png` : `landing_assets/${base}_siyah.png`;
+       }
     }
   }
 
@@ -366,7 +416,7 @@
     const wrapper = el.querySelector('.zoom-wrapper');
     if(wrapper) {
       wrapper.style.transformOrigin = `${x}% ${y}%`;
-      wrapper.style.transform = 'scale(1.8)';
+      wrapper.style.transform = 'scale(3.0)';
     }
   }
 
@@ -516,9 +566,19 @@
     btn.classList.add('active');
     window._selColor = hex;
     
+    let base = (window._selProductId == 1 || window._selProductId == 2) ? 'design_teachermode' : 
+               (window._selProductId == 3 || window._selProductId == 4) ? 'design_2ay3ay' : 
+               (window._selProductId == 5 || window._selProductId == 6) ? 'design_gerginyay' : 'design_denizkabugu';
     const img = document.getElementById('modalTshirtImg');
-    if(hex === '#FFFFFF') img.style.filter = 'drop-shadow(0 10px 15px rgba(0,0,0,0.05))';
-    if(hex === '#111827') img.style.filter = 'invert(0.9) brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.5))';
+    const designImg = document.getElementById('modalDesignImg');
+    if(hex === '#FFFFFF') {
+      if(img) img.style.filter = 'drop-shadow(0 10px 15px rgba(0,0,0,0.05))';
+      if(designImg) designImg.src = (base === 'design_denizkabugu') ? `landing_assets/${base}.png` : `landing_assets/${base}_beyaz.png`;
+    }
+    if(hex === '#111827') {
+      if(img) img.style.filter = 'invert(0.9) brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.5))';
+      if(designImg) designImg.src = (base === 'design_denizkabugu') ? `landing_assets/${base}.png` : `landing_assets/${base}_siyah.png`;
+    }
   }
   
   function pickModalSize(btn, size) {

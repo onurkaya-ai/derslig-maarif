@@ -387,29 +387,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 reveals.forEach(el => observer.observe(el));
 
-// Banner Carousel
-(function() {
-  const slides = document.querySelectorAll('#heroCarousel .banner-slide');
-  const dotsContainer = document.getElementById('heroDots');
-  let current = 0, interval;
-  slides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.className = 'banner-dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', () => goTo(i));
-    dotsContainer.appendChild(dot);
-  });
-  function goTo(index) {
-    slides[current].classList.remove('active');
-    dotsContainer.children[current].classList.remove('active');
-    current = index;
-    slides[current].classList.add('active');
-    dotsContainer.children[current].classList.add('active');
-    resetInterval();
-  }
-  function next() { goTo((current + 1) % slides.length); }
-  function resetInterval() { clearInterval(interval); interval = setInterval(next, 2500); }
-  resetInterval();
-})();
+// Banner Carousel removed
 </script>
 
 <!-- Ürün Kartı Render Motoru -->
