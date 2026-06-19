@@ -260,7 +260,7 @@
   ];
 
   // ─── VERİ KATMANI ───
-  const DB_VERSION = 15;
+  const DB_VERSION = 16;
   if (localStorage.getItem('derslig_db_ver') != DB_VERSION) {
     localStorage.removeItem('derslig_products');
     localStorage.removeItem('derslig_product_cards');
@@ -443,15 +443,7 @@
 
   // ─── MVP SEÇİM ───
   function updateCardGender(productId, gender, renk) {
-    const cardContainer = document.querySelector(`.product-card[data-product-id="${productId}"]`);
-    if(cardContainer) {
-       const img = cardContainer.querySelector('.tshirt-preview');
-       if(gender === 'Kadın') {
-         img.src = 'landing_assets/tshirt_kadin.png';
-       } else {
-         img.src = 'landing_assets/tshirt_erkek.png';
-       }
-    }
+    // Sadece select state'i tutuyoruz, görsel değişmeyecek (istek üzerine sadece erkek tişörtü gösterilecek)
   }
 
   function addToCartMVP(productId) {
@@ -656,14 +648,7 @@
     btn.style.color = '#fff';
     btn.classList.add('active');
     
-    const img = document.getElementById('modalTshirtImg');
-    if(img) {
-      if(gender === 'Kadın') {
-        img.src = 'landing_assets/tshirt_kadin.png';
-      } else {
-        img.src = 'landing_assets/tshirt_erkek.png';
-      }
-    }
+    // Görsel değişmeyecek (sadece erkek tişörtü görünecek)
   }
   
   function pickModalSize(btn, size) {
