@@ -484,7 +484,7 @@
       const x = ((event.clientX - rect.left) / rect.width) * 100;
       const y = ((event.clientY - rect.top) / rect.height) * 100;
       wrapper.style.transformOrigin = `${x}% ${y}%`;
-      wrapper.style.transform = 'scale(3.0)';
+      wrapper.style.transform = 'scale(4.0)';
       
       // Pan on mousemove
       el.onmousemove = function(e) {
