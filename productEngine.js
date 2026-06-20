@@ -384,6 +384,7 @@
               <option value="M" selected>Beden: M</option>
               <option value="L">Beden: L</option>
               <option value="XL">Beden: XL</option>
+              <option value="XXL">Beden: XXL</option>
             </select>
             <select id="gender-${product.id}" onclick="event.stopPropagation()" onchange="DersligEngine.updateCardGender(${product.id}, this.value, '${product.renk}')" style="padding:6px; border:1.5px solid #e5e7eb; border-radius:6px; font-family:'Nunito',sans-serif; font-size:12px; font-weight:700; color:#4b5563; flex:1; outline:none; cursor:pointer;">
               <option value="Erkek" selected>Kesim: Erkek</option>
@@ -592,6 +593,7 @@
                <div onclick="DersligEngine.pickModalSize(this, 'M')" class="modal-size-btn" style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; border:2px solid #e5e7eb; background:#fff; color:#4b5563; border-radius:8px; font-weight:700; cursor:pointer;">M</div>
                <div onclick="DersligEngine.pickModalSize(this, 'L')" class="modal-size-btn" style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; border:2px solid #e5e7eb; background:#fff; color:#4b5563; border-radius:8px; font-weight:700; cursor:pointer;">L</div>
                <div onclick="DersligEngine.pickModalSize(this, 'XL')" class="modal-size-btn" style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; border:2px solid #e5e7eb; background:#fff; color:#4b5563; border-radius:8px; font-weight:700; cursor:pointer;">XL</div>
+               <div onclick="DersligEngine.pickModalSize(this, 'XXL')" class="modal-size-btn" style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; border:2px solid #e5e7eb; background:#fff; color:#4b5563; border-radius:8px; font-weight:700; cursor:pointer;">XXL</div>
              </div>
            </div>
            
