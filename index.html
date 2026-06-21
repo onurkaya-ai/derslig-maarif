@@ -253,22 +253,25 @@ img{max-width:100%;display:block}
   }
   
   .hero-feature-badge {
-    background: rgba(255,255,255,0.1); 
-    backdrop-filter: blur(12px); 
-    padding: 12px 20px; 
-    border-radius: 12px; 
-    font-size: 14px; 
-    font-weight: 700; 
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(16px); 
+    padding: 12px 22px; 
+    border-radius: 100px; 
+    font-size: 15px; 
+    font-weight: 800; 
     display: flex; 
     align-items: center; 
-    gap: 10px; 
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transition: transform 0.3s, background 0.3s;
+    gap: 12px; 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #fff;
   }
   .hero-feature-badge:hover {
-    transform: translateY(-2px);
-    background: rgba(255,255,255,0.15);
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
   }
 </style>
 </head>
@@ -346,12 +349,18 @@ img{max-width:100%;display:block}
         <p style="font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.7; font-weight: 500;">Merhaba Onur KAYA, mağazaya hoş geldiniz! Öğretmenliği görünür kılmak için tasarlanan bu koleksiyondan elde edilen gelirin bir kısmı, dezavantajlı öğrencilere eğitim desteği olarak aktarılmaktadır.</p>
       </div>
       
-      <div style="display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap;">
+      <div style="display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap;">
         <div class="hero-feature-badge">
-          <span style="font-size: 16px;">🎓</span> Gelirin bir kısmı öğrencilere bağışlanır
+          <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4fd1c5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          Gelirin bir kısmı öğrencilere bağışlanır
         </div>
         <div class="hero-feature-badge">
-          <span style="font-size: 16px;">🔑</span> En az 2 yıllık üyelere öncelik tanınır
+          <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          En az 2 yıllık üyelere öncelik tanınır
         </div>
       </div>
     </div>
